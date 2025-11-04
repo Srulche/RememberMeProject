@@ -1,0 +1,123 @@
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: #181a1b; /* כהה נקי */
+  color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+#root {
+  display: grid;
+  place-items: start center;
+  padding: 48px 16px;
+}
+
+
+.login-card {
+  width: 100%;
+  max-width: 420px;              /* לא יעבור את זה */
+  padding: 28px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 18px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  display: grid;
+  gap: 16px;
+}
+
+.login-header { text-align: center; }
+.login-title  { margin: 4px 0 6px; font-size: 30px; line-height: 1.2; }
+/* .login-title {
+  text-align: center;
+  margin: 0 0 8px;
+} */
+
+.field { display: grid; gap: 6px; } 
+
+.field input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: #2a2b2d;
+  color: #fff;
+  outline: none;
+  font-size: 16px;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.field input::placeholder { color: #cfcfcf; opacity: .85; }
+.field input:focus {
+  border-color: #ffa24a;
+  background: #303235;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 0.95rem;
+    /* margin-top: 6px; */
+}
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    color: #e2e2e2;
+}
+
+.remember input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: #ffa24a;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 20px;
+  color: #161616;
+  background: linear-gradient(90deg, #ffaf4d, #ff7b00);
+  box-shadow: 0 6px 18px rgba(255,123,0,.25);
+  transition: transform .05s ease, filter .15s ease;
+}
+.login-btn:hover { filter: brightness(1.05); }
+.login-btn:active { transform: translateY(1px); }
+.login-btn:disabled { opacity: .65; cursor: not-allowed; }
+
+
+.card {
+  background: #1f1f1f;
+  border-radius: 16px;
+  padding: 28px;
+  width: 320px;
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.btn-gradient {
+  width: 100%;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #111;                       /* טקסט כהה על כתום */
+  background-image: linear-gradient(90deg, #fca311, #f97316);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+  transition: transform .08s ease, filter .18s ease;
+}
+.btn-gradient:hover { filter: brightness(1.05); }
+.btn-gradient:active { transform: translateY(1px); }
+.btn-gradient:disabled { opacity: .6; cursor: not-allowed; }
