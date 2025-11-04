@@ -45,17 +45,12 @@ export default function Login({ onSuccess }) {
         }
     }
 
-    // בשלב זה ה-OTP לא מאומת – נעשה בצעד הבא
-    // async function handleOtpSubmit(otp) {
-    //     setErr("OTP verification not implemented yet.");
-    // }
-
     async function handleOtpSubmit(otp) {
         setErr("");
         setLoading(true);
         try {
             await verifyOtpApi({ email: emailForOtp, otp });
-            const { data } = await meApi(); // יוודא קבלת cookie
+            const { data } = await meApi();
             onSuccess?.(data);
         } catch (e) {
             setErr(e.response?.data?.message || "OTP verification failed");
@@ -64,17 +59,6 @@ export default function Login({ onSuccess }) {
         }
     }
 
-
-
-    // אופציונלי: שליחה מחדש
-    async function handleResend() {
-        try {
-            await resendOtpApi({ email: emailForOtp });
-            setInfo(`A new code was sent to ${emailForOtp}.`);
-        } catch (e) {
-            setErr(e.response?.data?.message || "Failed to resend OTP");
-        }
-    }
     return (
         <div style={{ color: "white", padding: 20 }}>
             {mode === "login" ? (

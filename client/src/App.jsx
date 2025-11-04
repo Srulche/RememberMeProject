@@ -6,15 +6,14 @@ import LogoutButton from "./components/LogoutButton";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [checked, setChecked] = useState(false); // סיימנו בדיקה ראשונית?
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await meApi();
-        setUser(data);            // { uid }
+        setUser(data);
       } catch (err) {
-        // 401 = לא מחובר – מתעלמים בשקט
         if (err.response?.status !== 401) console.error(err);
       } finally {
         setChecked(true);

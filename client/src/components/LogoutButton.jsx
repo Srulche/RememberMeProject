@@ -8,10 +8,8 @@ export default function LogoutButton({ onLoggedOut }) {
     const handleLogout = async () => {
         setLoading(true);
         try {
-            await logoutApi();        // מוחק cookie בצד שרת
-            onLoggedOut?.();          // ננקה state בקליינט
-            // אופציונלי: רענון מלא אם רוצים אפס זיכרון:
-            // window.location.reload();
+            await logoutApi();
+            onLoggedOut?.();
 
         } finally {
             setLoading(false);

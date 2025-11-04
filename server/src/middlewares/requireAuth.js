@@ -11,17 +11,4 @@ export function requireAuth(req, res, next) {
   } catch {
     return res.status(401).json({ message: "Unauthorized" });
   }
-
-  // try {
-  //   const payload = jwt.verify(token, env.jwtSecret);
-  //   // payload: { uid, email, iat, exp }
-  //   req.user = {
-  //     uid: payload.uid,
-  //     email: payload.email,
-  //     remember: payload.remember,
-  //   };
-  //   next();
-  // } catch {
-  //   return res.status(401).json({ message: "Unauthorized" });
-  // }
 }

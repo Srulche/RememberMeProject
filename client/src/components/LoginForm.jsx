@@ -5,7 +5,7 @@ export default function LoginForm({ onSubmit, loading }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [remember, setRemember] = useState(true);
-    // const [errors, setErrors] = useState({});
+
     const [errors, setErrors] = useState({ email: "", password: "" });
 
     function validate() {
@@ -25,17 +25,6 @@ export default function LoginForm({ onSubmit, loading }) {
         setErrors(next);
         return Object.keys(next).length === 0;
     }
-    //     function validate({ email, password }) {
-    //   const e = { email: "", password: "" };
-    //   if (!email) e.email = "* Required Field";
-    //   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = "* Invalid Email";
-
-    //   if (!password) e.password = "* Required Field";
-    //   else if (password.length < 8) e.password = "* Password must be 8+ characters";
-
-    //   setErrors(e);
-    //   return !e.email && !e.password;
-    // }
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -94,7 +83,7 @@ export default function LoginForm({ onSubmit, loading }) {
                 {loading ? "Signing in..." : "Login"}
             </button>
 
-            {/* {error && <div style={{ color: "#f66", marginTop: 8 }}>{error}</div>} */}
+
         </form>
     );
 }
